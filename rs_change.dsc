@@ -42,3 +42,5 @@ rs_change_webhook:
             url: <[image]>
     - define data <[profile].with[embeds].as[<list_single[<[embed_data]>]>]>
     - ~webget <secret[discord_webhook_url]> headers:<map[Content-Type=application/json;User-Agent=angw97]> data:<[data].to_json>
+
+    #Try to enable text highlight on github
