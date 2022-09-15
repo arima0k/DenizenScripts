@@ -48,7 +48,7 @@ npc_interact_guild0:
                         - narrate "<&5>Premios?, recojelos en delivery"
                         - narrate "<&5>Fondo a la derecha."
                         - stop
-                    - if <player.flag[kill_enderman_count]> < 10:
+                    - if <player.has_flag[kill_enderman_count]>:
                         - narrate "<&5>Continua cazando!!"
                         - stop
                     - title "title:<&color[#663399]>Evento Portal!!!" "subtitle:<&color[#9400D3]>Acaba con los enderman!!!"
@@ -85,6 +85,10 @@ kill_enderman_event:
 
 kill_enderman_event_death:
     type: world
+    debug: false
     events:
-        after player death flagged:kill_enderman_count by:enderman:
+        on player death flagged:kill_enderman_count by:enderman:
         - determine KEEP_INV
+        - determine KEEP_LEVEL
+        - determine NO_DROPS
+        - determine NO_XP
